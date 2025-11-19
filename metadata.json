@@ -1,0 +1,5 @@
+{
+  "name": "Readable Spokable PDF Converter",
+  "description": "Converts technical PDFs into natural, spoken-language PDFs optimized for Text-to-Speech (TTS) using Google Gemini models. Features multimodal processing, batch handling, and in-browser privacy.",
+  "requestFramePermissions": []
+}

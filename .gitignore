@@ -1,24 +1,28 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Dependency/Build Artifacts
+node_modules/
+/dist
+/build
 
-node_modules
-dist
-dist-ssr
-*.local
+# TypeScript & Build Cache
+*.tsbuildinfo
+.turbo/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+
+# Logs and Temp Files
+*.log
+/tmp
+
+# Serverless/Cloud Deployment Artifacts (if applicable, e.g., AWS CDK synth/dist)
+.serverless/
+
+# OS/System Files
+/coverage
+/reports
+
+# Gemini/AI Caching (if local cache files are generated)
+.gemini_cache/

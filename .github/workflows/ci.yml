@@ -1,0 +1,82 @@
+name: CI
+
+# Trigger the workflow on push events for the main branch
+# and on pull requests targeting the main branch.
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Define the jobs to be run
+jobs:
+  build-and-test:
+    # Use the latest Ubuntu runner for the job
+    runs-on: ubuntu-latest
+
+    # Define the steps to be executed in the job
+    steps:
+      # Step 1: Checkout the repository code
+      # This action checks out your repository so your workflow can access it.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js environment
+      # This action sets up a specific version of Node.js. We use v20.x for compatibility.
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm' # Enable caching for npm dependencies
+
+      # Step 3: Install dependencies
+      # Installs project dependencies using npm ci for a clean install based on package-lock.json.
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 4: Run linters and formatters
+      # Executes Biome for code linting and formatting. This ensures code quality and consistency.
+      - name: Lint and format with Biome
+        run: npm run lint && npm run format
+
+      # Step 5: Run unit tests
+      # Executes unit tests using Vitest. This step verifies the functionality of individual components.
+      - name: Run Unit Tests
+        run: npm test
+
+      # Step 6: Build the application
+      # Builds the production-ready application using Vite. This step generates optimized assets.
+      # NOTE: Assuming a build script exists in package.json, e.g., "build": "vite build"
+      - name: Build Application
+        run: npm run build
+
+      # Step 7: Upload build artifacts (optional but good practice)
+      # Archives the built application for potential deployment or further inspection.
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-artifact
+          path: dist/ # Adjust path if your build output directory is different
+
+# NOTE: This CI configuration is designed for a TypeScript/Node.js/Vite project.
+# If the project's stack deviates significantly (e.g., purely Python for backend without Node.js build), 
+# this workflow will need adjustments. Based on the provided context ('TypeScript' language),
+# this configuration is deemed appropriate.
+# 
+# For projects exclusively in Python without a Node.js build step, a different CI workflow
+# utilizing Python versions, pip/uv, Ruff, and Pytest would be necessary.
+# Example: 
+#   - name: Set up Python
+#     uses: actions/setup-python@v5
+#     with:
+#       python-version: '3.10'
+#       cache: 'pip' # or 'uv'
+#   - name: Install Python dependencies
+#     run: |
+#       pip install --upgrade pip
+#       pip install -r requirements.txt
+#       # or uv pip sync requirements.txt
+#   - name: Lint with Ruff
+#     run: ruff check .
+#   - name: Run Pytest
+#     run: pytest

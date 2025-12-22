@@ -1,0 +1,6 @@
+# .github/badges.yml
+schemaVersion: 1
+label: 'CI/CD'
+message: 'passing'
+color: 'success'
+style: 'for-the-badge'

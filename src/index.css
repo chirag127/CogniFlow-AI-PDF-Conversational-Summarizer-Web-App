@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', sans-serif;
+  --background: #111827; /* A deep, cool gray */
+  --foreground: #F9FAFB; /* Off-white for text */
+  --paper: #1F2937;      /* Slightly lighter gray for cards/panels */
+  --primary: #3B82F6;    /* A vibrant blue */
+  --secondary: #A78BFA;  /* A soft purple for gradients */
+  --border: #374151;     /* Border color for elements */
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  /* Custom scrollbar for a more modern look */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4b5563;
+  }
+}
+
+/* Add custom styles for the "Spatial Glass" effect if needed */
+.spatial-glass {
+  background-color: rgba(31, 41, 55, 0.7); /* --paper with alpha */
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

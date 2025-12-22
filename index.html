@@ -1,63 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Readable Spokable PDF</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              primary: '#3b82f6',
-              secondary: '#64748b',
-              dark: '#0f172a',
-              darker: '#020617',
-              paper: '#1e293b',
-            }
-          }
-        }
-      }
-    </script>
-    <!-- PDF.js for reading -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <script>
-      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-    </script>
-    <!-- jsPDF for writing -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <style>
-      /* Custom scrollbar for dark mode */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #1e293b; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #475569; 
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #64748b; 
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
-  }
-}
-</script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO and Core Metadata -->
+  <title>CogniFlow AI | Conversational PDF Summarizer</title>
+  <meta name="description" content="An AI-powered web application to transform complex PDFs into conversational, easy-to-understand text suitable for Text-to-Speech (TTS) systems." />
+  <meta name="keywords" content="AI, PDF, Summarizer, TTS, Cerebras, Conversational AI, Accessibility" />
+  <meta name="author" content="chirag127" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://chirag127.github.io/CogniFlow-AI-PDF-Conversational-Summarizer-Web-App/" />
+  <meta property="og:title" content="CogniFlow AI | Conversational PDF Summarizer" />
+  <meta property="og:description" content="Transform dense PDFs into clear, conversational text with the power of AI. Ideal for accessibility and on-the-go learning." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/chirag127/CogniFlow-AI-PDF-Conversational-Summarizer-Web-App/main/public/og-image.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://chirag127.github.io/CogniFlow-AI-PDF-Conversational-Summarizer-Web-App/" />
+  <meta property="twitter:title" content="CogniFlow AI | Conversational PDF Summarizer" />
+  <meta property="twitter:description" content="Transform dense PDFs into clear, conversational text with the power of AI. Ideal for accessibility and on-the-go learning." />
+  <meta property="twitter:image" content="https://raw.githubusercontent.com/chirag127/CogniFlow-AI-PDF-Conversational-Summarizer-Web-App/main/public/og-image.png" />
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-  <body class="bg-darker text-slate-200 h-screen overflow-hidden font-sans antialiased selection:bg-blue-500 selection:text-white">
-    <div id="root" class="h-full flex flex-col"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+<body class="bg-background text-foreground font-sans antialiased">
+  <div id="root"></div>
+  <script type="module" src="/src/index.tsx"></script>
+</body>
 </html>

@@ -17,7 +17,7 @@
     "jspdf": "^2.5.1",
     "lucide-react": "^0.395.0",
     "openai": "^4.52.0",
-    "pdfjs-dist": "4.3.136",
+    "pdfjs-dist": "4.10.38",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
